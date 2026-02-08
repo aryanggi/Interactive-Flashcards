@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyFlash — Interactive Learning Preview</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: radial-gradient(circle at top, #1d3557, #0b132b);
+  color:#fff;
+  padding:2.5rem;
+}
+
+header{
+  max-width:1100px;
+  margin:auto;
+  margin-bottom:3rem;
+}
+
+h1{
+  font-size:2.8rem;
+  margin-bottom:0.6rem;
+}
+
+header p{
+  opacity:0.85;
+  max-width:700px;
+  line-height:1.6;
+}
+
+/* GRID */
+.grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+}
+
+/* CARD */
+.card{
+  perspective:1200px;
+}
+
+.card-inner{
+  position:relative;
+  height:380px;
+  transition:transform 0.9s cubic-bezier(.4,.2,.2,1);
+  transform-style:preserve-3d;
+}
+
+.card:hover .card-inner{
+  transform:rotateY(180deg);
+}
+
+.face{
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  backface-visibility:hidden;
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 20px 45px rgba(0,0,0,0.6);
+}
+
+/* FRONT */
+.front{
+  background:linear-gradient(135deg,#457b9d,#1d3557);
+}
+
+.tags{
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+
+.tag{
+  font-size:0.7rem;
+  padding:4px 10px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.2);
+}
+
+.question{
+  font-size:1.2rem;
+  font-weight:600;
+  margin:1.5rem 0;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.75rem;
+  opacity:0.85;
+}
+
+/* BACK */
+.back{
+  background:linear-gradient(135deg,#2a9d8f,#1b4332);
+  transform:rotateY(180deg);
+  font-size:0.95rem;
+  line-height:1.6;
+}
+
+.back h4{
+  margin-bottom:0.6rem;
+}
+
+.hint{
+  margin-top:1rem;
+  font-size:0.8rem;
+  opacity:0.85;
+}
+
+/* LOCKED */
+.locked{
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:0.75rem;
+  background:rgba(0,0,0,0.4);
+  padding:5px 10px;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📘 StudyFlash</h1>
+  <p>
+    An interactive flashcard-based learning system designed to improve
+    retention through active recall and visual engagement.
+    <strong>This is a preview version.</strong>
+  </p>
+</header>
+
+<div class="grid">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="face front">
+        <div class="locked">Preview</div>
+        <div class="tags">
+          <span class="tag">Chemistry</span>
+          <span class="tag">Science</span>
+        </div>
+        <div class="question">
+          What does the Law of Conservation of Mass state?
+        </div>
+        <div class="meta">
+          <span>Difficulty: Easy</span>
+          <span>Hover to reveal</span>
+        </div>
+      </div>
+
+      <div class="face back">
+        <h4>Answer</h4>
+        <p>
+          The Law of Conservation of Mass states that matter is neither created
+          nor destroyed during a chemical reaction. The mass of reactants is
+          always equal to the mass of products.
+        </p>
+        <div class="hint">
+          💡 Hint: Think of balancing chemical equations.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="face front">
+        <div class="locked">Preview</div>
+        <div class="tags">
+          <span class="tag">Biology</span>
+        </div>
+        <div class="question">
+          What is photosynthesis?
+        </div>
+        <div class="meta">
+          <span>Difficulty: Medium</span>
+          <span>Hover to reveal</span>
+        </div>
+      </div>
+
+      <div class="face back">
+        <h4>Answer</h4>
+        <p>
+          Photosynthesis is the process by which plants use sunlight,
+          carbon dioxide, and water to produce glucose and oxygen.
+        </p>
+        <div class="hint">
+          💡 Hint: Occurs in chloroplasts.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
